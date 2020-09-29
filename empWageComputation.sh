@@ -8,9 +8,12 @@ isFullTime=2
 
 fullDayHour=8
 partDayHour=4
-empWorkDays=20
+numWorkDays=20
 
-case $empCheck in
+day=1
+while [ $day -le $numWorkDays ]
+do
+		case $empCheck in
 				$isPartTime)    echo "Employee is Present"
 						workHrs=4
 						echo "Part Time Salary is :"
@@ -23,7 +26,8 @@ case $empCheck in
 						workHrs=0
 						echo "Employee is Absent !"
 					;;
-esac
-
-
-salary=$(( $empRatePerHour * $workHrs ))
+		esac
+	salary=$(( $empRatePerHour * $workHrs ))
+	totalsalary=$(($totalsalary+$salary))
+	((day++))
+done
