@@ -1,18 +1,29 @@
 #!/bin/bash -x
 echo "Welcome to Employee Wage Computation program"
-empCheck=$((1+RANDOM%2))
+empCheck=$((RANDOM%3))
 empRatePerHour=20
+
+isPartTime=1
+isFullTime=2
+
 fullDayHour=8
 partDayHour=4
+empWorkDays=20
 
 case $empCheck in
-					1) echo "Employee is Present"
-						FullTimedailyEmpWage=$(( $empRatePerHour * $fullDayHour  ))
-						PartTimedailyEmpWage=$(( $empRatePerHour * $partDayHour  ))
+				$isPartTime)    echo "Employee is Present"
+						workHrs=4
+						echo "Part Time Salary is :"
 					;;
-					2)
-						echo "Employee is Absent"
+				$isFullTime)	echo "Employee is Present"
+						workHrs=8
+						echo "Full Time Salary is :"
+					;;
+					*)
+						workHrs=0
+						echo "Employee is Absent !"
 					;;
 esac
-echo "Full Time Daily Employee Wage : $FullTimedailyEmpWage"
-echo "Part Time Daily Employee Wage : $PartTimedailyEmpWage"
+
+
+salary=$(( $empRatePerHour * $workHrs ))
