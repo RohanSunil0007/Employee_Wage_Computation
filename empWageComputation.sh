@@ -13,5 +13,8 @@ else
 fi
 empRatePerHour=20
 fullDayHour=8
-dailyEmpWage=$(( $empRatePerHour * $fullDayHour * $attendance ))
-echo "Daily Employee Wage : $dailyEmpWage"
+partDayHour=4
+FullTimedailyEmpWage=$(( $empRatePerHour * $fullDayHour * $attendance ))
+echo "Full Time Daily Employee Wage : $FullTimedailyEmpWage"
+PartTimedailyEmpWage=$(( $empRatePerHour * $partDayHour * $attendance ))
+echo "Part Time Daily Employee Wage : $PartTimedailyEmpWage"
